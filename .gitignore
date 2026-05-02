@@ -1,0 +1,34 @@
+# Dependencies
+tech-hype-api/node_modules/
+tech-hype-front/node_modules/
+
+# Build outputs
+tech-hype-api/dist/
+tech-hype-api/build/
+tech-hype-front/dist/
+tech-hype-front/dist-ssr/
+
+# Logs
+tech-hype-api/logs/
+tech-hype-front/logs/
+*.log
+
+# Test coverage
+tech-hype-api/coverage/
+tech-hype-api/.nyc_output/
+
+# IDE files
+tech-hype-api/.vscode/
+tech-hype-front/.vscode/
+tech-hype-api/.idea/
+tech-hype-front/.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+tech-hype-api/.temp/
+tech-hype-api/.tmp/
+tech-hype-front/.temp/
+tech-hype-front/.tmp/
