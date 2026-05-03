@@ -1,14 +1,10 @@
-type ErrorMessageProps = {
-  title?: string
-  message?: string
-  onRetry?: () => void
-}
+import type { IErrorMessageProps } from "@/features/videos/types/video.types";
 
-export default function ErrorMessage({
+const ErrorMessage = ({
   title = 'Something went wrong',
   message = 'Please try again in a moment.',
   onRetry,
-}: ErrorMessageProps) {
+}: IErrorMessageProps) => {
   return (
     <div className="rounded-2xl border border-rose-500/20 bg-rose-500/10 p-4 text-rose-100">
       <div className="flex items-start justify-between gap-4">
@@ -29,4 +25,6 @@ export default function ErrorMessage({
     </div>
   )
 }
+
+export default ErrorMessage
 

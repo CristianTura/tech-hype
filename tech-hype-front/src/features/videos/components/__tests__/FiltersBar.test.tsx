@@ -1,9 +1,9 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import FiltersBar from '../FiltersBar'
-import type { VideosFiltersState } from '../../types/video.types'
+import FiltersBar from '@/features/videos/components/FiltersBar'
+import type { IVideosFiltersState } from '@/features/videos/types/video.types'
 
-const mockValue: VideosFiltersState = {
+const mockValue: IVideosFiltersState = {
   author: 'Test Author',
   minHype: '1.5',
   sortBy: 'hype',

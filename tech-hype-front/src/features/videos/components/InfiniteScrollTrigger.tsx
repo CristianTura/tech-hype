@@ -1,18 +1,12 @@
 import { useEffect, useRef } from 'react'
+import type { IInfiniteScrollTriggerProps } from '@/features/videos/types/video.types'
 
-type InfiniteScrollTriggerProps = {
-  hasMore: boolean
-  loading: boolean
-  onLoadMore: () => void
-  rootMargin?: string
-}
-
-export default function InfiniteScrollTrigger({
+const InfiniteScrollTrigger = ({
   hasMore,
   loading,
   onLoadMore,
   rootMargin = '200px',
-}: InfiniteScrollTriggerProps) {
+}: IInfiniteScrollTriggerProps) => {
   const ref = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
@@ -37,4 +31,6 @@ export default function InfiniteScrollTrigger({
 
   return <div ref={ref} className="h-10" />
 }
+
+export default InfiniteScrollTrigger
 

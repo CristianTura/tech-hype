@@ -1,11 +1,7 @@
-import type { Video } from '../types/video.types'
+import type { IFeaturedVideoProps } from '../types/video.types'
 import HypeBadge from './HypeBadge'
 
-type FeaturedVideoProps = {
-  video: Video
-}
-
-export default function FeaturedVideo({ video }: FeaturedVideoProps) {
+const FeaturedVideo = ({ video }: IFeaturedVideoProps) => {
   return (
     <div>
       <div className="mb-4 text-center">
@@ -54,4 +50,6 @@ export default function FeaturedVideo({ video }: FeaturedVideoProps) {
     </div>
   )
 }
+
+export default FeaturedVideo
 

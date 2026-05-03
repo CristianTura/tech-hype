@@ -1,15 +1,14 @@
 import { renderHook, waitFor, act } from '@testing-library/react'
-import { useVideos } from '../useVideos'
-import * as videosApi from '../../services/videos.api'
-import type { Video, VideosResponse } from '../../types/video.types'
+import { useVideos } from '@/features/videos/hooks/useVideos'
+import * as videosApi from '@/features/videos/services/videos.api'
+import type { IVideo, IVideosResponse } from '@/features/videos/types/video.types'
 
-// Mock del API
-vi.mock('../../services/videos.api')
+vi.mock('@/features/videos/services/videos.api')
 
 const mockGetVideos = vi.mocked(videosApi.getVideos)
 
 describe('useVideos', () => {
-  const mockVideo: Video = {
+  const mockVideo: IVideo = {
     title: 'Test Video',
     author: 'Test Author',
     thumbnail: 'test.jpg',
@@ -17,7 +16,7 @@ describe('useVideos', () => {
     hype: 1.5
   }
 
-  const mockResponse: VideosResponse = {
+  const mockResponse: IVideosResponse = {
     data: {
       topVideo: mockVideo,
       videos: [mockVideo]
@@ -65,7 +64,7 @@ describe('useVideos', () => {
   })
 
   it('loads more videos with loadMore', async () => {
-    const firstPageResponse: VideosResponse = {
+    const firstPageResponse: IVideosResponse = {
       ...mockResponse,
       meta: {
         page: 1,
@@ -75,7 +74,7 @@ describe('useVideos', () => {
       }
     }
 
-    const secondPageResponse: VideosResponse = {
+    const secondPageResponse: IVideosResponse = {
       data: {
         videos: [{ ...mockVideo, title: 'Video 2' }]
       },
@@ -149,7 +148,7 @@ describe('useVideos', () => {
   })
 
   it('does not load more if no more videos', async () => {
-    const noMoreResponse: VideosResponse = {
+    const noMoreResponse: IVideosResponse = {
       data: { videos: [] },
       meta: {
         page: 1,

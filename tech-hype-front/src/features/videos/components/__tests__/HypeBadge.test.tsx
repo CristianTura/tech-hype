@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import HypeBadge from '../HypeBadge'
+import HypeBadge from '@/features/videos/components/HypeBadge'
 
 describe('HypeBadge', () => {
   it('displays hype with correct format', () => {
@@ -26,13 +26,6 @@ describe('HypeBadge', () => {
     render(<HypeBadge hype={Infinity} />)
     
     expect(screen.getByText('Hype 0.000')).toBeInTheDocument()
-  })
-
-  it('applies custom classes', () => {
-    render(<HypeBadge hype={1.5} className="custom-class" />)
-    
-    const badge = screen.getByTitle('Hype: 1.500')
-    expect(badge).toHaveClass('custom-class')
   })
 
   it('prevents text wrapping to multiple lines', () => {

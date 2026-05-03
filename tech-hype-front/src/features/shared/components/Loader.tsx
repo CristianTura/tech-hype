@@ -1,9 +1,6 @@
-type LoaderProps = {
-  variant?: 'page' | 'grid'
-  count?: number
-}
+import type { ILoaderProps } from "@/features/videos/types/video.types";
 
-export default function Loader({ variant = 'page', count = 8 }: LoaderProps) {
+const Loader = ({ variant = 'page', count = 8 }: ILoaderProps) => {
   if (variant === 'grid') {
     return (
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -42,4 +39,6 @@ export default function Loader({ variant = 'page', count = 8 }: LoaderProps) {
     </div>
   )
 }
+
+export default Loader
 

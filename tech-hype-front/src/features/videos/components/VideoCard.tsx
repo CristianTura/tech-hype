@@ -1,11 +1,7 @@
-import type { Video } from '../types/video.types'
-import HypeBadge from './HypeBadge'
+import type { IVideoCardProps } from '@/features/videos/types/video.types'
+import HypeBadge from '@/features/videos/components/HypeBadge'
 
-type VideoCardProps = {
-  video: Video
-}
-
-export default function VideoCard({ video }: VideoCardProps) {
+const VideoCard = ({ video }: IVideoCardProps) => {
   return (
     <article className="group overflow-hidden rounded-2xl border border-white/10 bg-slate-900/40 transition duration-200 hover:-translate-y-0.5 hover:shadow-glow animate-fadeInUp">
       <div className="relative">
@@ -35,4 +31,6 @@ export default function VideoCard({ video }: VideoCardProps) {
     </article>
   )
 }
+
+export default VideoCard
 

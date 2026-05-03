@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
-import VideoCard from '../VideoCard'
-import type { Video } from '../../types/video.types'
+import VideoCard from '@/features/videos/components/VideoCard'
+import type { IVideo } from '@/features/videos/types/video.types'
 
-const mockVideo: Video = {
+const mockVideo: IVideo = {
   title: 'Advanced React Patterns Tutorial',
   author: 'React Expert',
   thumbnail: 'https://example.com/react-thumb.jpg',

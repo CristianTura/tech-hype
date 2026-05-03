@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import { getVideos, type GetVideosParams } from '../services/videos.api'
-import type { Video, VideosMeta, UseVideosState } from '../types/video.types'
+import { getVideos } from '@/features/videos/services/videos.api'
+import type { IVideo, IVideosMeta, IUseVideosState, IGetVideosParams } from '@/features/videos/types/video.types'
 
-export function useVideos(params: GetVideosParams = {}): UseVideosState {
+export function useVideos(params: IGetVideosParams = {}): IUseVideosState {
   const limit = params.limit ?? 10
   const author = params.author ?? ''
   const minHype = params.minHype
@@ -11,9 +11,9 @@ export function useVideos(params: GetVideosParams = {}): UseVideosState {
 
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [meta, setMeta] = useState<VideosMeta | null>(null)
-  const [topVideo, setTopVideo] = useState<Video | null>(null)
-  const [videos, setVideos] = useState<Video[]>([])
+  const [meta, setMeta] = useState<IVideosMeta | null>(null)
+  const [topVideo, setTopVideo] = useState<IVideo | null>(null)
+  const [videos, setVideos] = useState<IVideo[]>([])
   const [page, setPage] = useState(1)
   const [hasMore, setHasMore] = useState(true)
   const [nonce, setNonce] = useState(0)

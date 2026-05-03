@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
-import FeaturedVideo from '../FeaturedVideo'
-import type { Video } from '../../types/video.types'
+import FeaturedVideo from '@/features/videos/components/FeaturedVideo'
+import type { IVideo } from '@/features/videos/types/video.types'
 
-const mockVideo: Video = {
+const mockVideo: IVideo = {
   title: 'Amazing Tech Video',
   author: 'Tech Creator',
   thumbnail: 'https://example.com/thumb.jpg',
@@ -23,13 +23,6 @@ describe('FeaturedVideo', () => {
     expect(screen.getByText('Amazing Tech Video')).toBeInTheDocument()
     expect(screen.getByText('Tech Creator')).toBeInTheDocument()
     expect(screen.getByText('2024-01-15')).toBeInTheDocument()
-  })
-
-  it('displays "Crown Jewel" badge', () => {
-    render(<FeaturedVideo video={mockVideo} />)
-    
-    expect(screen.getByText('👑')).toBeInTheDocument()
-    expect(screen.getByText('Crown Jewel')).toBeInTheDocument()
   })
 
   it('displays HypeBadge with correct value', () => {

@@ -1,4 +1,4 @@
-export type Video = {
+export type IVideo = {
   title: string
   author: string
   thumbnail: string
@@ -6,52 +6,96 @@ export type Video = {
   hype: number
 }
 
-export type VideosSortBy = 'hype' | 'date'
-export type VideosOrder = 'asc' | 'desc'
+export type IVideosSortBy = 'hype' | 'date'
+export type IVideosOrder = 'asc' | 'desc'
 
-export type VideosFilters = {
+export type IVideosFilters = {
   author?: string
   minHype?: number
-  sortBy?: VideosSortBy
-  order?: VideosOrder
+  sortBy?: IVideosSortBy
+  order?: IVideosOrder
 }
 
-export type VideosMeta = {
+export type IVideosMeta = {
   page: number
   limit: number
   total: number
   totalPages: number
 }
 
-export type VideosResponse = {
+export type IVideosResponse = {
   data: {
-    topVideo?: Video | null
-    videos: Video[]
+    topVideo?: IVideo | null
+    videos: IVideo[]
   }
-  meta: VideosMeta
+  meta: IVideosMeta
 }
 
-export type UseVideosState = {
+export type IUseVideosState = {
   loading: boolean
   error: string | null
-  topVideo: Video | null
-  videos: Video[]
-  meta: VideosMeta | null
+  topVideo: IVideo | null
+  videos: IVideo[]
+  meta: IVideosMeta | null
   hasMore: boolean
   refetch: () => void
   loadMore: () => void
 }
 
-export type VideosFiltersState = {
+export type IVideosFiltersState = {
   author: string
   minHype: string
-  sortBy: VideosSortBy
-  order: VideosOrder
+  sortBy: IVideosSortBy
+  order: IVideosOrder
 }
 
-export type FiltersBarProps = {
-  value: VideosFiltersState
-  onChange: (next: VideosFiltersState) => void
+export type IFiltersBarProps = {
+  value: IVideosFiltersState
+  onChange: (next: IVideosFiltersState) => void
   onReset?: () => void
   disabled?: boolean
+}
+
+export type IVideoGridProps = {
+  videos: IVideo[]
+}
+
+export type IInfiniteScrollTriggerProps = {
+  hasMore: boolean
+  loading: boolean
+  onLoadMore: () => void
+  rootMargin?: string
+}
+
+export type IHypeBadgeProps = {
+  hype: number
+  className?: string
+}
+
+export type IFeaturedVideoProps = {
+  video: IVideo
+}
+
+export type IGetVideosParams = {
+  page?: number
+  limit?: number
+  author?: string
+  minHype?: number
+  sortBy?: IVideosFilters['sortBy']
+  order?: IVideosFilters['order']
+}
+
+export type IErrorMessageProps = {
+  title?: string
+  message?: string
+  onRetry?: () => void
+}
+
+export type ILoaderProps = {
+  variant?: 'page' | 'grid'
+  count?: number
+}
+
+export type IVideoCardProps = {
+  video: IVideo
 }

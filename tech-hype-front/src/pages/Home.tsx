@@ -1,23 +1,23 @@
 import { useEffect, useState } from 'react'
-import ErrorMessage from '../features/shared/components/ErrorMessage'
-import Loader from '../features/shared/components/Loader'
-import FeaturedVideo from '../features/videos/components/FeaturedVideo'
-import FiltersBar from '../features/videos/components/FiltersBar'
-import InfiniteScrollTrigger from '../features/videos/components/InfiniteScrollTrigger'
-import VideoGrid from '../features/videos/components/VideoGrid'
-import { useVideos } from '../features/videos/hooks/useVideos'
-import type { VideosFiltersState } from '../features/videos/types/video.types'
+import ErrorMessage from '@/features/shared/components/ErrorMessage'
+import Loader from '@/features/shared/components/Loader'
+import FeaturedVideo from '@/features/videos/components/FeaturedVideo'
+import FiltersBar from '@/features/videos/components/FiltersBar'
+import InfiniteScrollTrigger from '@/features/videos/components/InfiniteScrollTrigger'
+import VideoGrid from '@/features/videos/components/VideoGrid'
+import { useVideos } from '@/features/videos/hooks/useVideos'
+import type { IVideosFiltersState } from '@/features/videos/types/video.types'
 
-const DEFAULT_FILTERS: VideosFiltersState = {
+const DEFAULT_FILTERS: IVideosFiltersState = {
   author: '',
   minHype: '',
   sortBy: 'hype',
   order: 'desc',
 }
 
-export default function Home() {
-  const [filters, setFilters] = useState<VideosFiltersState>(DEFAULT_FILTERS)
-  const [appliedFilters, setAppliedFilters] = useState<VideosFiltersState>(DEFAULT_FILTERS)
+const Home = () => {
+  const [filters, setFilters] = useState<IVideosFiltersState>(DEFAULT_FILTERS)
+  const [appliedFilters, setAppliedFilters] = useState<IVideosFiltersState>(DEFAULT_FILTERS)
 
   useEffect(() => {
     const t = setTimeout(() => {
@@ -110,4 +110,6 @@ export default function Home() {
     </div>
   )
 }
+
+export default Home
 

@@ -1,11 +1,7 @@
-import { getHypeClasses } from '../utils/video.utils'
+import { getHypeClasses } from '@/features/videos/utils/video.utils'
+import type { IHypeBadgeProps } from '@/features/videos/types/video.types'
 
-type HypeBadgeProps = {
-  hype: number
-  className?: string
-}
-
-export default function HypeBadge({ hype, className }: HypeBadgeProps) {
+const HypeBadge = ({ hype, className }: IHypeBadgeProps) => {
   const value = Number.isFinite(hype) ? hype : 0
   const pretty = value.toFixed(3)
 
@@ -24,4 +20,6 @@ export default function HypeBadge({ hype, className }: HypeBadgeProps) {
     </span>
   )
 }
+
+export default HypeBadge
 
