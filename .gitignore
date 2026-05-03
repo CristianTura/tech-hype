@@ -8,6 +8,10 @@ tech-hype-api/build/
 tech-hype-front/dist/
 tech-hype-front/dist-ssr/
 
+# Keep project directories but ignore their .git folders
+tech-hype-api/.git/
+tech-hype-front/.git/
+
 # Logs
 tech-hype-api/logs/
 tech-hype-front/logs/
