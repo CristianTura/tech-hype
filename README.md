@@ -183,7 +183,7 @@ npm run test:coverage
 - **Environment Variables**: Vercel automatically sets `NODE_ENV=production`
 
 ### Frontend (Vercel)
-- **Frontend URL**: [Pending deployment]
+- **Frontend URL**: `https://tech-hype-mmn9.vercel.app/`
 - **Environment Variable**: `VITE_API_BASE_URL=https://tech-hype.vercel.app`
 
 ### Local Development

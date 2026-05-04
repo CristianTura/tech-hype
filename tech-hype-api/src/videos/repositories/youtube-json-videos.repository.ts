@@ -1,31 +1,18 @@
-import { Injectable, InternalServerErrorException } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
-import { readFile } from 'node:fs/promises';
-import { join } from 'node:path';
+import { Injectable } from '@nestjs/common';
 import { VideosRepository } from './videos.repository';
 import { YoutubeVideoListItem, YoutubeVideoListResponse } from '../models/video.model';
+import data from '../../../assets/mock-youtube-api.json';
 
 @Injectable()
 export class YoutubeJsonVideosRepository
   implements VideosRepository<YoutubeVideoListItem>
 {
-  private readonly filePath: string;
-
-  constructor(private configService: ConfigService) {
-    this.filePath = join(
-      process.cwd(),
-      'assets',
-      'mock-youtube-api.json',
-    );
-  }
-
   async getAll(): Promise<YoutubeVideoListItem[]> {
     try {
-      const raw = await readFile(this.filePath, 'utf-8');
-      const parsed = JSON.parse(raw) as YoutubeVideoListResponse;
+      const parsed = data as YoutubeVideoListResponse;
       return Array.isArray(parsed.items) ? parsed.items : [];
     } catch (err) {
-      throw new InternalServerErrorException('Failed to load videos data');
+      throw new Error('Failed to load videos data');
     }
   }
 }
