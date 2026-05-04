@@ -25,7 +25,10 @@ export function useVideos(params: IGetVideosParams = {}): IUseVideosState {
     setError(null)
   }
 
-  const refetch = () => setNonce((n) => n + 1)
+  const refetch = () => {
+    setError(null)
+    setNonce((n) => n + 1)
+  }
   
   const loadMore = () => {
     if (loading || !hasMore) return
@@ -33,6 +36,8 @@ export function useVideos(params: IGetVideosParams = {}): IUseVideosState {
   }
 
   useEffect(() => {
+    if (error && error !== 'Something went wrong while loading videos.') return
+    
     const controller = new AbortController()
     setLoading(true)
     setError(null)
@@ -70,7 +75,7 @@ export function useVideos(params: IGetVideosParams = {}): IUseVideosState {
     return () => {
       controller.abort()
     }
-  }, [page, limit, author, minHype, sortBy, order, nonce])
+  }, [page, limit, author, minHype, sortBy, order, nonce, error])
 
   useEffect(() => {
     resetVideos()

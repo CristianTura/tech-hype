@@ -10,7 +10,7 @@ export class YoutubeJsonVideosRepository
 {
   private readonly filePath = join(
     process.cwd(),
-    'src',
+    process.env.NODE_ENV === 'production' ? 'dist' : 'src',
     'data',
     'mock-youtube-api.json',
   );
