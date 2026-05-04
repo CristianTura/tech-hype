@@ -1,17 +1,23 @@
 import '@testing-library/jest-dom'
 
 // Mock de IntersectionObserver para tests
-global.IntersectionObserver = class IntersectionObserver {
-  constructor() {}
-  disconnect() {}
-  observe() {}
-  unobserve() {}
-}
+Object.defineProperty(globalThis, 'IntersectionObserver', {
+  value: class {
+    constructor() {}
+    disconnect() {}
+    observe() {}
+    unobserve() {}
+  },
+  writable: true
+})
 
 // Mock de ResizeObserver para tests
-global.ResizeObserver = class ResizeObserver {
-  constructor() {}
-  disconnect() {}
-  observe() {}
-  unobserve() {}
-}
+Object.defineProperty(globalThis, 'ResizeObserver', {
+  value: class {
+    constructor() {}
+    disconnect() {}
+    observe() {}
+    unobserve() {}
+  },
+  writable: true
+})

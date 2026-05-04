@@ -1,4 +1,5 @@
 import { Injectable, InternalServerErrorException } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { VideosRepository } from './videos.repository';
@@ -8,12 +9,15 @@ import { YoutubeVideoListItem, YoutubeVideoListResponse } from '../models/video.
 export class YoutubeJsonVideosRepository
   implements VideosRepository<YoutubeVideoListItem>
 {
-  private readonly filePath = join(
-    process.cwd(),
-    process.env.NODE_ENV === 'production' ? 'dist' : 'src',
-    'data',
-    'mock-youtube-api.json',
-  );
+  private readonly filePath: string;
+
+  constructor(private configService: ConfigService) {
+    this.filePath = join(
+      process.cwd(),
+      'assets',
+      'mock-youtube-api.json',
+    );
+  }
 
   async getAll(): Promise<YoutubeVideoListItem[]> {
     try {

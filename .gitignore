@@ -36,3 +36,7 @@ tech-hype-api/.temp/
 tech-hype-api/.tmp/
 tech-hype-front/.temp/
 tech-hype-front/.tmp/
+
+# Environment variables
+tech-hype-api/.env
+tech-hype-front/.env

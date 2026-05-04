@@ -50,7 +50,24 @@ npm install
 
 ---
 
-### 3. Install Frontend Dependencies
+### 3. Configure Environment Variables
+
+#### Backend Environment Variables
+Create a `.env` file in the `tech-hype-api` directory and add:
+```
+NODE_ENV=development
+PORT=3000
+```
+
+#### Frontend Environment Variables
+Create a `.env` file in the `tech-hype-front` directory and add:
+```
+VITE_API_BASE_URL=http://localhost:3000
+```
+
+---
+
+### 4. Install Frontend Dependencies
 
 ```bash
 cd ../tech-hype-front
@@ -159,7 +176,23 @@ npm run test:coverage
 
 ---
 
-## 📄 Additional Documentation
+## 🚀 Deployment
+
+### Backend (Vercel)
+- **API URL**: `https://tech-hype.vercel.app` ✅
+- **Environment Variables**: Vercel automatically sets `NODE_ENV=production`
+
+### Frontend (Vercel)
+- **Frontend URL**: [Pending deployment]
+- **Environment Variable**: `VITE_API_BASE_URL=https://tech-hype.vercel.app`
+
+### Local Development
+Use the local configuration as shown in the setup instructions above.
+
+---
+
+## � Additional Documentation
+## ��📄 Additional Documentation
 
 * See `DECISIONS.md` for architectural decisions and development process
 

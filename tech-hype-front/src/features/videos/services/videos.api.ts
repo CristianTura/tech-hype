@@ -2,7 +2,7 @@ import axios from 'axios'
 import type { IGetVideosParams, IVideosResponse } from '@/features/videos/types/video.types'
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL ?? '',
+  baseURL: import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:3000',
 })
 
 export async function getVideos(params: IGetVideosParams = {}): Promise<IVideosResponse> {

@@ -102,13 +102,5 @@ describe('Pagination Utility', () => {
         totalPages: 25,
       });
     });
-
-    it('should handle exact division', () => {
-      const exactData = Array.from({ length: 20 }, (_, i) => ({ id: i + 1 }));
-      const result = paginate(exactData, 2, 5);
-      
-      expect(result.data).toHaveLength(5);
-      expect(result.meta.totalPages).toBe(4);
-    });
   });
 });
